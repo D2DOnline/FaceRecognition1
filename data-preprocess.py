@@ -67,9 +67,9 @@ def load_dataset(directory):
 	return asarray(X), asarray(y)
 
 # load train dataset
-trainX, trainy = load_dataset('/FaceRegognition1/train-images/')
+trainX, trainy = load_dataset('FaceRegognition1/train-images/')
 print(trainX.shape, trainy.shape)
 # load test dataset
-testX, testy = load_dataset('/FaceRegognition1/train-images/')
+testX, testy = load_dataset('FaceRegognition1/train-images/')
 # save arrays to one file in compressed format
 savez_compressed('face-dataset.npz', trainX, trainy, testX, testy)
