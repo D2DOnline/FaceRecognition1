@@ -38,7 +38,7 @@ def load_faces(directory):
 	# enumerate files
 	for filename in listdir(directory):
 		# path
-		path = directory + filename
+		path = directory + '/' + filename
 		# get face
 		face = extract_face(path)
 		# store
@@ -51,7 +51,7 @@ def load_dataset(directory):
 	# enumerate folders, on per class
 	for subdir in listdir(directory):
 		# path
-		path = directory + subdir + '/'
+		path = directory + '/' + subdir 
 		# skip any files that might be in the dir
 		if not isdir(path):
 			continue
@@ -67,13 +67,13 @@ def load_dataset(directory):
 	return asarray(X), asarray(y)
 
 # load train dataset
-trainX, trainy = load_dataset('FaceRecognition1/train-images')
-print(trainX.shape, trainy.shape)
+trainX, trainY = load_dataset('FaceRecognition1/train-images')
+print(trainX.shape, trainY.shape)
 # load test dataset
-testX, testy = load_dataset('FaceRecognition1/train-images')
+testX, testY = load_dataset('FaceRecognition1/train-images')
 # save arrays to one file in compressed format
 print("TrainX: - {}", trainX)
-print("TrainX: - {}", trainy)
-print("TrainX: - {}", testX)
-print("TrainX: - {}", testy)
+print("TrainY: - {}", trainY)
+print("TestX: - {}", testX)
+print("TestY: - {}", testY)
 savez_compressed('FaceRecognition1/face-dataset.npz', trainX, trainy, testX, testy)
